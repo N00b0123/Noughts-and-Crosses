@@ -11,6 +11,7 @@ h1{
     border: none;
     padding: 10px 15px;
     margin: 0 10px;
+    background-color: Transparent;
 }
 
 /* Game board */
@@ -114,3 +115,4 @@ h1{
     padding: 20px;
     display: none;
 }
+
