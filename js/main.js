@@ -1,3 +1,5 @@
+import { CheckWin } from "./verifyWin.js";
+
 let x = document.querySelector(".x");
 let o = document.querySelector(".o");
 let boxes = document.querySelectorAll(".box");
@@ -24,12 +26,15 @@ for(let i = 0; i < boxes.length; i++){
             } else{
                 player2++;
             }
+
+            CheckWin();
         }
     });
 }
 
 function CheckPlayer(player1, player2){
 
+    let el;
     if(player1 == player2){
         el = x;
     } else{
@@ -38,3 +43,4 @@ function CheckPlayer(player1, player2){
     
     return el;
 }
+
