@@ -4,8 +4,7 @@ let x = document.querySelector(".x");
 let o = document.querySelector(".o");
 let boxes = document.querySelectorAll(".box");
 let buttons = document.querySelectorAll("#buttons-container button");
-let messageContainer = document.querySelector("#message");
-let messageText = document.querySelector("#message p");
+
 let secondPlayer;
 
 let player1 = 0;
@@ -42,5 +41,15 @@ function CheckPlayer(player1, player2){
     }
     
     return el;
+}
+
+export function RestartGame(){
+    player1 = 0;
+    player2 = 0;
+
+    let boxesToRemove = document.querySelectorAll(".box div");
+    for(let i = 0; i < boxesToRemove.length; i++){
+        boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
+    }
 }
 

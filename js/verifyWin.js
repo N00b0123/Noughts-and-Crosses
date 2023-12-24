@@ -1,5 +1,11 @@
+import { RestartGame } from "./main.js";
+
 let xWin = 0;
 let oWin = 0;
+let draw = 0;
+
+let messageContainer = document.querySelector("#message");
+let messageText = document.querySelector("#message p");
 
 export function CheckWin(boxes){
 
@@ -28,16 +34,7 @@ export function CheckWin(boxes){
     Check357(b3, b5, b7);
 
     //draw
-    let counter =0;
-    for(let i =0; i<boxes.length; i++){
-        if(boxes[i].childNodes[0] !== undefined){
-            counter++;
-        }
-    }
-    if(xWin == 0 && oWin == 0 && counter == 9){
-        console.log("draw");
-    }
-    
+    CheckDraw(boxes);
 }
 
 // horizontal start
@@ -49,12 +46,14 @@ function Check123(b1, b2, b3){
         let b3Child = b3.childNodes[0].className;
 
         if(b1Child == "x" && b2Child == "x" && b3Child == "x"){
-            console.log("pimba no x 123")
             xWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            xWin = 0;
         } 
         else if(b1Child == "o" && b2Child == "o" && b3Child == "o"){
-            console.log("pimba no O 123")
             oWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            oWin = 0;
         }
     }
 }
@@ -67,12 +66,14 @@ function Check456(b4, b5, b6){
         let b6Child = b6.childNodes[0].className;
 
         if(b4Child == "x" && b5Child == "x" && b6Child == "x"){
-            console.log("pimba no x 456")
             xWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            xWin = 0;
         } 
         else if(b4Child == "o" && b5Child == "o" && b6Child == "o"){
-            console.log("pimba no O 456")
             oWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            oWin = 0;
         }
     }
 }
@@ -85,12 +86,14 @@ function Check789(b7, b8, b9){
         let b9Child = b9.childNodes[0].className;
 
         if(b7Child == "x" && b8Child == "x" && b9Child == "x"){
-            console.log("pimba no x 789")
             xWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            xWin = 0;
         } 
         else if(b7Child == "o" && b8Child == "o" && b9Child == "o"){
-            console.log("pimba no O 789")
             oWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            oWin = 0;
         }
     }
 }
@@ -106,12 +109,14 @@ function Check147(b1, b4, b7){
 
 
         if(b1Child == "x" && b4Child == "x" && b7Child == "x"){
-            console.log("pimba no x 147")
             xWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            xWin = 0;
         } 
         else if(b1Child == "o" && b4Child == "o" && b7Child == "o"){
-            console.log("pimba no O 147")
             oWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            oWin = 0;
         }
     }
 }
@@ -125,12 +130,14 @@ function Check258(b2, b5, b8){
 
 
         if(b2Child == "x" && b5Child == "x" && b8Child == "x"){
-            console.log("pimba no x 258")
             xWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            xWin = 0;
         } 
         else if(b2Child == "o" && b5Child == "o" && b8Child == "o"){
-            console.log("pimba no O 258")
             oWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            oWin = 0;
         }
     }
 }
@@ -144,12 +151,14 @@ function Check369(b3, b6, b9){
 
 
         if(b3Child == "x" && b6Child == "x" && b9Child == "x"){
-            console.log("pimba no x 369")
             xWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            xWin = 0;
         } 
         else if(b3Child == "o" && b6Child == "o" && b9Child == "o"){
-            console.log("pimba no O 369")
             oWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            oWin = 0;
         }
     }
 }
@@ -165,12 +174,14 @@ function Check159(b1, b5, b9){
 
 
         if(b1Child == "x" && b5Child == "x" && b9Child == "x"){
-            console.log("pimba no x 159")
             xWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            xWin = 0;
         } 
         else if(b1Child == "o" && b5Child == "o" && b9Child == "o"){
-            console.log("pimba no O 159")
             oWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            oWin = 0;
         }
     }
 }
@@ -184,14 +195,62 @@ function Check357(b3, b5, b7){
 
 
         if(b3Child == "x" && b5Child == "x" && b7Child == "x"){
-            console.log("pimba no x 357")
             xWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            xWin = 0;
         } 
         else if(b3Child == "o" && b5Child == "o" && b7Child == "o"){
-            console.log("pimba no O 357")
             oWin = 1;
+            VerifyWinner(xWin, oWin, draw);
+            oWin = 0;
         }
     }
 }
 
 //end diagonal
+
+function CheckDraw(boxes){
+    let counter =0;
+    for(let i =0; i<boxes.length; i++){
+        if(boxes[i].childNodes[0] !== undefined){
+            counter++;
+        }
+    }
+    if(xWin == 0 && oWin == 0 && counter == 9){
+        draw = 1;
+        VerifyWinner(xWin, oWin, draw);
+        draw = 0;
+    }
+}
+
+function VerifyWinner(xWin, oWin, draw){
+
+    let scoreboardX = document.querySelector("#scoreboard-1");
+    let scoreboardO = document.querySelector("#scoreboard-2");
+    let winnerMsg = '';
+
+    if(xWin == 1){
+        scoreboardX.textContent = parseInt(scoreboardX.textContent)+1;
+        winnerMsg = "Red Wins";
+    }
+
+    else if(oWin == 1){
+        scoreboardO.textContent = parseInt(scoreboardO.textContent)+1;
+        winnerMsg = "Blue Wins";
+    }
+
+    else if(draw == 1){
+        winnerMsg = "Draw";
+    }
+
+    messageText.innerHTML = winnerMsg;
+    messageContainer.classList.remove("hide");
+
+    //restart game
+
+    setTimeout(function(){
+        messageContainer.classList.add("hide");
+    },3000);
+
+    RestartGame();
+}

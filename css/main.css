@@ -64,11 +64,11 @@ h1{
     display: inline-block;
 }
 
-/*
+
 .hide{
     display: none !important;
 }
-*/
+
 
 /*score*/
 
@@ -113,6 +113,5 @@ h1{
     background-color: #000;
     color: #fff;
     padding: 20px;
-    display: none;
 }
 
