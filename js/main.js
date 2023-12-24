@@ -27,7 +27,7 @@ for(let i = 0; i < boxes.length; i++){
                 player2++;
             }
 
-            CheckWin();
+            CheckWin(boxes);
         }
     });
 }
