@@ -4,6 +4,13 @@ let xWin = 0;
 let oWin = 0;
 let draw = 0;
 
+let blueAudio = [];
+let redAudio = [];
+let drawAudio = "../audio/draw.mp3"
+let randomNumber = 0;
+
+SetAudio();
+
 let messageContainer = document.querySelector("#message");
 let messageText = document.querySelector("#message p");
 
@@ -225,6 +232,7 @@ function CheckDraw(boxes){
 
 function VerifyWinner(xWin, oWin, draw){
 
+    RandomSound();
     let scoreboardX = document.querySelector("#scoreboard-1");
     let scoreboardO = document.querySelector("#scoreboard-2");
     let winnerMsg = '';
@@ -232,15 +240,21 @@ function VerifyWinner(xWin, oWin, draw){
     if(xWin == 1){
         scoreboardX.textContent = parseInt(scoreboardX.textContent)+1;
         winnerMsg = "Red Wins";
+        let audio = new Audio(redAudio[randomNumber]);
+        audio.play();
     }
 
     else if(oWin == 1){
         scoreboardO.textContent = parseInt(scoreboardO.textContent)+1;
         winnerMsg = "Blue Wins";
+        let audio = new Audio(blueAudio[randomNumber]);
+        audio.play();
     }
 
     else if(draw == 1){
         winnerMsg = "Draw";
+        let audio = new Audio(drawAudio);
+        audio.play();
     }
 
     messageText.innerHTML = winnerMsg;
@@ -253,4 +267,15 @@ function VerifyWinner(xWin, oWin, draw){
     },3000);
 
     RestartGame();
+}
+
+function RandomSound(){
+    randomNumber = Math.random() * (4 - 1) + 1;
+    randomNumber = parseInt(randomNumber);
+    randomNumber--;
+}
+
+function SetAudio(){
+    blueAudio.push("../audio/blu1.mp3", "../audio/blu2.mp3", "../audio/blu3.mp3", "../audio/blu4.mp3");
+    redAudio.push("../audio/red1.mp3", "../audio/red2.mp3", "../audio/red3.mp3", "../audio/red4.mp3");
 }
