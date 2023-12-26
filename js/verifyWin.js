@@ -4,11 +4,9 @@ let xWin = 0;
 let oWin = 0;
 let draw = 0;
 
-let gitPageUrl = "Noughts-and-Crosses/";
-
 let blueAudio = [];
 let redAudio = [];
-let drawAudio = gitPageUrl + "audio/draw.mp3"
+let drawAudio = "audio/draw.mp3"
 let randomNumber = 0;
 
 SetAudio();
@@ -278,6 +276,6 @@ function RandomSound(){
 }
 
 function SetAudio(){
-    blueAudio.push(gitPageUrl + "audio/blu1.mp3", gitPageUrl + "audio/blu2.mp3", gitPageUrl + "audio/blu3.mp3", gitPageUrl + "audio/blu4.mp3");
-    redAudio.push(gitPageUrl + "audio/red1.mp3", gitPageUrl + "audio/red2.mp3", gitPageUrl + "audio/red3.mp3", gitPageUrl + "audio/red4.mp3");
+    blueAudio.push("audio/blu1.mp3", "audio/blu2.mp3", "audio/blu3.mp3", "audio/blu4.mp3");
+    redAudio.push("audio/red1.mp3", "audio/red2.mp3", "audio/red3.mp3", "audio/red4.mp3");
 }
