@@ -6,7 +6,7 @@ let draw = 0;
 
 let blueAudio = [];
 let redAudio = [];
-let drawAudio = "../audio/draw.mp3"
+let drawAudio = "./audio/draw.mp3"
 let randomNumber = 0;
 
 SetAudio();
@@ -276,6 +276,6 @@ function RandomSound(){
 }
 
 function SetAudio(){
-    blueAudio.push("../audio/blu1.mp3", "../audio/blu2.mp3", "../audio/blu3.mp3", "../audio/blu4.mp3");
-    redAudio.push("../audio/red1.mp3", "../audio/red2.mp3", "../audio/red3.mp3", "../audio/red4.mp3");
+    blueAudio.push("/audio/blu1.mp3", "/audio/blu2.mp3", "/audio/blu3.mp3", "/audio/blu4.mp3");
+    redAudio.push("/audio/red1.mp3", "/audio/red2.mp3", "/audio/red3.mp3", "/audio/red4.mp3");
 }
