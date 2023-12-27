@@ -17,26 +17,26 @@ StartGameButton();
 for(let i = 0; i < boxes.length; i++){
     boxes[i].addEventListener("click", function(){
     
-        let el = CheckPlayer(player1, player2);
+      //  let el = CheckPlayer(player1, player2);
         gameState = CheckGameState();
         if(gameState == 0){
+            let el = CheckPlayer(player1, player2);
             if(this.childNodes.length == 0){
 
                 let cloneEl = el.cloneNode(true);
                 this.appendChild(cloneEl);
-            
                 if(player1 == player2){
                     player1++;
                     CheckWin(boxes);
                     if(secondPlayer == "ai-player"){
                         DumbAi();
                         player2++;
-                        
-                    } else{
-                        player2++;
-                    }        
-                    CheckWin(boxes);
+                    }
                 }
+                else{
+                    player2++;                   
+                }
+                CheckWin(boxes);
             }
         }
     });
