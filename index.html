@@ -12,12 +12,11 @@
 <body>
     <h1>Noughts and Crosses</h1>
     <div id="buttons-container">
-        <button id="2-players">2 Players</button>
-        <button id="ai-player">VS Dumb AI</button>
-        <button id="advanced-ai-player">VS Enhanced AI</button>
+        <button id="2-players" class="available">2 Players</button>
+        <button id="ai-player"class="available">VS Dumb AI</button>
     </div>
 
-    <div id="container" class="">
+    <div id="container" class="hide">
         <div class="box" id="block-1"></div>
         <div class="box" id="block-2"></div>
         <div class="box" id="block-3"></div>
@@ -52,7 +51,7 @@
     </div>
 
 
-    <p id="copy">Voice by Ellen McLain &copy; Valve Software</p>
+    <p id="copy" class="hide">Voice by Ellen McLain &copy; Valve Software</p>
 
     <script type="module" src='js/main.js'></script>
 

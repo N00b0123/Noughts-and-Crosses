@@ -3,6 +3,7 @@ import { RestartGame } from "./main.js";
 let xWin = 0;
 let oWin = 0;
 let draw = 0;
+let endGame = 0;
 
 let blueAudio = [];
 let redAudio = [];
@@ -26,22 +27,24 @@ export function CheckWin(boxes){
     let b8 = document.getElementById("block-8");
     let b9 = document.getElementById("block-9");
 
+    //prevent double win
     //horizontal
-    Check123(b1, b2, b3);
-    Check456(b4, b5, b6);
-    Check789(b7, b8, b9);
+    if(endGame==0) Check123(b1, b2, b3);
+    if(endGame==0) Check456(b4, b5, b6);
+    if(endGame==0) Check789(b7, b8, b9);
 
     //vertical
-    Check147(b1, b4, b7);
-    Check258(b2, b5, b8);
-    Check369(b3, b6, b9);
+    if(endGame==0) Check147(b1, b4, b7);
+    if(endGame==0) Check258(b2, b5, b8);
+    if(endGame==0) Check369(b3, b6, b9);
 
     //diagonal
-    Check159(b1, b5, b9);
-    Check357(b3, b5, b7);
+    if(endGame==0) Check159(b1, b5, b9);
+    if(endGame==0) Check357(b3, b5, b7);
 
     //draw
-    CheckDraw(boxes);
+    if(endGame==0) CheckDraw(boxes);
+
 }
 
 // horizontal start
@@ -55,12 +58,17 @@ function Check123(b1, b2, b3){
         if(b1Child == "x" && b2Child == "x" && b3Child == "x"){
             xWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            xWin = 0;
+            setTimeout(function(){
+                xWin = 0;
+            },1000);
+            
         } 
         else if(b1Child == "o" && b2Child == "o" && b3Child == "o"){
             oWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            oWin = 0;
+            setTimeout(function(){
+                oWin = 0;
+            },1000);
         }
     }
 }
@@ -75,12 +83,16 @@ function Check456(b4, b5, b6){
         if(b4Child == "x" && b5Child == "x" && b6Child == "x"){
             xWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            xWin = 0;
+            setTimeout(function(){
+                xWin = 0;
+            },1000);
         } 
         else if(b4Child == "o" && b5Child == "o" && b6Child == "o"){
             oWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            oWin = 0;
+            setTimeout(function(){
+                oWin = 0;
+            },1000);
         }
     }
 }
@@ -95,12 +107,16 @@ function Check789(b7, b8, b9){
         if(b7Child == "x" && b8Child == "x" && b9Child == "x"){
             xWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            xWin = 0;
+            setTimeout(function(){
+                xWin = 0;
+            },1000);
         } 
         else if(b7Child == "o" && b8Child == "o" && b9Child == "o"){
             oWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            oWin = 0;
+            setTimeout(function(){
+                oWin = 0;
+            },1000);
         }
     }
 }
@@ -118,12 +134,16 @@ function Check147(b1, b4, b7){
         if(b1Child == "x" && b4Child == "x" && b7Child == "x"){
             xWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            xWin = 0;
+            setTimeout(function(){
+                xWin = 0;
+            },1000);
         } 
         else if(b1Child == "o" && b4Child == "o" && b7Child == "o"){
             oWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            oWin = 0;
+            setTimeout(function(){
+                oWin = 0;
+            },1000);
         }
     }
 }
@@ -139,12 +159,16 @@ function Check258(b2, b5, b8){
         if(b2Child == "x" && b5Child == "x" && b8Child == "x"){
             xWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            xWin = 0;
+            setTimeout(function(){
+                xWin = 0;
+            },1000);
         } 
         else if(b2Child == "o" && b5Child == "o" && b8Child == "o"){
             oWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            oWin = 0;
+            setTimeout(function(){
+                oWin = 0;
+            },1000);
         }
     }
 }
@@ -160,12 +184,16 @@ function Check369(b3, b6, b9){
         if(b3Child == "x" && b6Child == "x" && b9Child == "x"){
             xWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            xWin = 0;
+            setTimeout(function(){
+                xWin = 0;
+            },1000);
         } 
         else if(b3Child == "o" && b6Child == "o" && b9Child == "o"){
             oWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            oWin = 0;
+            setTimeout(function(){
+                oWin = 0;
+            },1000);
         }
     }
 }
@@ -183,12 +211,16 @@ function Check159(b1, b5, b9){
         if(b1Child == "x" && b5Child == "x" && b9Child == "x"){
             xWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            xWin = 0;
+            setTimeout(function(){
+                xWin = 0;
+            },1000);
         } 
         else if(b1Child == "o" && b5Child == "o" && b9Child == "o"){
             oWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            oWin = 0;
+            setTimeout(function(){
+                oWin = 0;
+            },1000);
         }
     }
 }
@@ -204,12 +236,16 @@ function Check357(b3, b5, b7){
         if(b3Child == "x" && b5Child == "x" && b7Child == "x"){
             xWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            xWin = 0;
+            setTimeout(function(){
+                xWin = 0;
+            },1000);
         } 
         else if(b3Child == "o" && b5Child == "o" && b7Child == "o"){
             oWin = 1;
             VerifyWinner(xWin, oWin, draw);
-            oWin = 0;
+            setTimeout(function(){
+                oWin = 0;
+            },1000);
         }
     }
 }
@@ -231,42 +267,61 @@ function CheckDraw(boxes){
 }
 
 function VerifyWinner(xWin, oWin, draw){
-
+    
     RandomSound();
     let scoreboardX = document.querySelector("#scoreboard-1");
     let scoreboardO = document.querySelector("#scoreboard-2");
     let winnerMsg = '';
 
     if(xWin == 1){
+        endGame = 1;
         scoreboardX.textContent = parseInt(scoreboardX.textContent)+1;
         winnerMsg = "Red Wins";
         let audio = new Audio(redAudio[randomNumber]);
         audio.play();
+        CheckGameState();
     }
 
     else if(oWin == 1){
+        endGame = 1;
         scoreboardO.textContent = parseInt(scoreboardO.textContent)+1;
         winnerMsg = "Blue Wins";
         let audio = new Audio(blueAudio[randomNumber]);
         audio.play();
+        CheckGameState();
     }
 
     else if(draw == 1){
-        winnerMsg = "Draw";
+        endGame = 1;
+        winnerMsg = "Stalemate";
         let audio = new Audio(drawAudio);
         audio.play();
+        CheckGameState();
     }
 
     messageText.innerHTML = winnerMsg;
     messageContainer.classList.remove("hide");
 
     //restart game
-
     setTimeout(function(){
         messageContainer.classList.add("hide");
-    },3000);
+    },2200);
 
-    RestartGame();
+    setTimeout(function(){
+        RestartGame();
+        endGame = 0;
+    },2000);
+}
+
+export function CheckGameState(){
+    let gameState = 1;
+    if(endGame == 1){
+        gameState = 1;
+        return gameState;
+    } else {
+        gameState = 0;
+        return gameState;
+    }
 }
 
 function RandomSound(){
