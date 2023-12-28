@@ -17,7 +17,6 @@ StartGameButton();
 for(let i = 0; i < boxes.length; i++){
     boxes[i].addEventListener("click", function(){
     
-      //  let el = CheckPlayer(player1, player2);
         gameState = CheckGameState();
         if(gameState == 0){
             let el = CheckPlayer(player1, player2);
